@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_pg1/blocs/counter_bloc.dart';
 
-class BlocSelectorExampleScreen extends StatelessWidget {
-  const BlocSelectorExampleScreen({Key? key}) : super(key: key);
+class BlocSelectorExampleWidget extends StatelessWidget {
+  const BlocSelectorExampleWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    dev.log('BlocSelectorExampleScreen', name: 'BUILD');
+    dev.log('BlocSelectorExampleScreen', name: 'BUILD WIDGET');
     return Column(
       children: [
         Container(
@@ -20,28 +20,30 @@ class BlocSelectorExampleScreen extends StatelessWidget {
           ),
         ),
         Row(
-          children: const <Widget>[IsCounterOddView()],
+          children: const <Widget>[IsCounterOddWidget()],
         ),
       ],
     );
   }
 }
 
-class IsCounterOddView extends StatelessWidget {
-  const IsCounterOddView({Key? key}) : super(key: key);
+class IsCounterOddWidget extends StatelessWidget {
+  const IsCounterOddWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    dev.log('IsCounterOddWidget', name: 'BUILD WIDGET');
     return BlocSelector<CounterBloc, int, String>(
       selector: (state) => state.isOdd ? 'odd' : 'even',
       builder: (context, state) {
+        dev.log('IsCounterOddWidget', name: 'BUILD BLOC');
         return Container(
             color: Colors.purpleAccent.shade700,
             width: 120,
             height: 120,
             child: Center(
                 child: Text(
-              'Counter is $state',
+              'counter is $state',
               style: const TextStyle(color: Colors.white),
             )));
       },
