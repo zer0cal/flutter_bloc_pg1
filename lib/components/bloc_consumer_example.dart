@@ -53,7 +53,8 @@ class CountOfIncreasesOfCounterWidget extends StatelessWidget {
             height: 120,
             child: Center(
                 child: Text(
-              'increases of\ncounter: $countOfIncreases',
+              'increases of'
+              '\ncounter: $countOfIncreases',
               softWrap: true,
               style: const TextStyle(color: Colors.white),
             )));
@@ -82,12 +83,12 @@ class CountOfDecreasesOfCounterWidget extends StatelessWidget {
             height: 120,
             child: Center(
                 child: Text(
-                  'increases of\ncounter: $countOfDecreases',
-                  softWrap: true,
-                  style: const TextStyle(color: Colors.white),
-                )));
+              'increases of\n'
+              'counter: $countOfDecreases',
+              softWrap: true,
+              style: const TextStyle(color: Colors.white),
+            )));
       },
     );
   }
 }
-
