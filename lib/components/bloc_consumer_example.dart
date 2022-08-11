@@ -12,7 +12,7 @@ class BlocConsumerExampleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    dev.log('BlocConsumerExampleScreen', name: 'BUILD WIDGET');
+    dev.log('BlocConsumerExampleWidget', name: 'BUILD WIDGET');
     return Column(
       children: [
         Container(

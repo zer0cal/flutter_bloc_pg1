@@ -9,7 +9,7 @@ class BlocListenerExampleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    dev.log('BlocListenerExampleScreen', name: 'BUILD WIDGET');
+    dev.log('BlocListenerExampleWidget', name: 'BUILD WIDGET');
     return Column(
       children: [
         Container(
