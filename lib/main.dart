@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CounterBloc>(create: (context) => CounterBloc(),)
+        BlocProvider<CounterBloc>(
+          create: (context) => CounterBloc(),
+        )
       ],
       child: MaterialApp(
         home: Scaffold(
@@ -26,7 +28,11 @@ class MyApp extends StatelessWidget {
             title: const Text('Bloc playground'),
           ),
           body: ListView(
-            children: const [ BlocBuilderExampleScreen(), BlocSelectorExampleScreen()],),
+            children: const [
+              BlocBuilderExampleScreen(),
+              BlocSelectorExampleScreen()
+            ],
+          ),
         ),
       ),
     );

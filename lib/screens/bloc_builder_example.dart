@@ -11,19 +11,23 @@ class BlocBuilderExampleScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     dev.log('BlocBuilderExampleScreen', name: 'BUILD');
     return Column(
-          children: [
-            Container(
-              height: 40,
-              color: Colors.blue.shade50 ,
-              child: const Center(child: Text('BlocBuilder'),),
-            ),
-            Row(children: const [
-              IncrementButton(),
-              DecrementButton(),
-              CounterWidget(),
-            ],),
+      children: [
+        Container(
+          height: 40,
+          color: Colors.blue.shade50,
+          child: const Center(
+            child: Text('BlocBuilder'),
+          ),
+        ),
+        Row(
+          children: const [
+            IncrementButton(),
+            DecrementButton(),
+            CounterWidget(),
           ],
-        );
+        ),
+      ],
+    );
   }
 }
 
@@ -38,9 +42,15 @@ class IncrementButton extends StatelessWidget {
       width: 120,
       height: 120,
       child: TextButton(
-        onPressed: () { context.read<CounterBloc>().add(CounterIncrementPressed()); },
-        child: const Text('increment', style: TextStyle(color: Colors.white),),
-      ),);
+        onPressed: () {
+          context.read<CounterBloc>().add(CounterIncrementPressed());
+        },
+        child: const Text(
+          'increment',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 }
 
@@ -55,9 +65,15 @@ class DecrementButton extends StatelessWidget {
       width: 120,
       height: 120,
       child: TextButton(
-        onPressed: () { context.read<CounterBloc>().add(CounterDecrementPressed()); },
-        child: const Text('decrement', style: TextStyle(color: Colors.white),),
-      ),);
+        onPressed: () {
+          context.read<CounterBloc>().add(CounterDecrementPressed());
+        },
+        child: const Text(
+          'decrement',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 }
 
@@ -72,7 +88,13 @@ class CounterWidget extends StatelessWidget {
         color: Colors.yellow.shade700,
         width: 120,
         height: 120,
-        child: Center(child: Text(context.read<CounterBloc>().state.toString(), style: const TextStyle(color: Colors.white),),),);
+        child: Center(
+          child: Text(
+            context.read<CounterBloc>().state.toString(),
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      );
     });
   }
 }

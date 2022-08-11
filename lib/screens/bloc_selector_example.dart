@@ -15,9 +15,13 @@ class BlocSelectorExampleScreen extends StatelessWidget {
         Container(
           height: 40,
           color: Colors.blue.shade50,
-          child: const Center(child: Text('BlocSelector'),),
+          child: const Center(
+            child: Text('BlocSelector'),
+          ),
         ),
-        Row(children: const <Widget>[IsCounterOddView()],),
+        Row(
+          children: const <Widget>[IsCounterOddView()],
+        ),
       ],
     );
   }
@@ -29,17 +33,18 @@ class IsCounterOddView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocSelector<CounterBloc, int, String>(
-      selector: (state) => state.isOdd ? 'odd' :'even',
+      selector: (state) => state.isOdd ? 'odd' : 'even',
       builder: (context, state) {
         return Container(
             color: Colors.purpleAccent.shade700,
             width: 120,
             height: 120,
-            child: Center(child: Text('Counter is $state', style: const TextStyle(color: Colors.white),)));
+            child: Center(
+                child: Text(
+              'Counter is $state',
+              style: const TextStyle(color: Colors.white),
+            )));
       },
     );
   }
 }
-
-
-
