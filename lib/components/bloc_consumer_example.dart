@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_pg1/blocs/counter_bloc.dart';
 
-int count = 0;
+int countOfIncreases = 0;
+int countOfDecreases = 0;
 
 class BlocConsumerExampleWidget extends StatelessWidget {
   const BlocConsumerExampleWidget({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class BlocConsumerExampleWidget extends StatelessWidget {
         Row(
           children: const <Widget>[
             CountOfIncreasesOfCounterWidget(),
+            CountOfDecreasesOfCounterWidget(),
           ],
         ),
       ],
@@ -40,7 +42,7 @@ class CountOfIncreasesOfCounterWidget extends StatelessWidget {
     return BlocConsumer<CounterBloc, int>(
       listenWhen: (previous, current) => current > previous,
       listener: (context, state) {
-        count++;
+        countOfIncreases++;
       },
       buildWhen: (previous, current) => current > previous,
       builder: (context, state) {
@@ -51,7 +53,7 @@ class CountOfIncreasesOfCounterWidget extends StatelessWidget {
             height: 120,
             child: Center(
                 child: Text(
-              'increases of\ncounter: $count',
+              'increases of\ncounter: $countOfIncreases',
               softWrap: true,
               style: const TextStyle(color: Colors.white),
             )));
@@ -59,3 +61,33 @@ class CountOfIncreasesOfCounterWidget extends StatelessWidget {
     );
   }
 }
+
+class CountOfDecreasesOfCounterWidget extends StatelessWidget {
+  const CountOfDecreasesOfCounterWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    dev.log('CountOfDecreasesOfCounterWidget', name: 'BUILD WIDGET');
+    return BlocConsumer<CounterBloc, int>(
+      listenWhen: (previous, current) => current < previous,
+      listener: (context, state) {
+        countOfDecreases++;
+      },
+      buildWhen: (previous, current) => current < previous,
+      builder: (context, state) {
+        dev.log('CountOfDecreasesOfCounterWidget', name: 'BUILD BLOC');
+        return Container(
+            color: Colors.green.shade700,
+            width: 120,
+            height: 120,
+            child: Center(
+                child: Text(
+                  'increases of\ncounter: $countOfDecreases',
+                  softWrap: true,
+                  style: const TextStyle(color: Colors.white),
+                )));
+      },
+    );
+  }
+}
+
